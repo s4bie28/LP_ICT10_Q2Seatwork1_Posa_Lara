@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <title>Q2 Seatwork 1</title>
+    <style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Rajdhani', sans-serif;
+    color: #ffffff;
+    background: #08152e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* HEADER */
+header {
+    width: 100%;
+    text-align: center;
+    padding: 45px 20px 30px;
+    background: linear-gradient(135deg, #102751, #08152e);
+    border-bottom: 4px solid #f5c542;
+}
+
+header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.6rem);
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 20px 0 12px;
+}
+
+header p {
+    color: #f5c542;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* VOLLEYBALL EMBLEM */
+.reactor {
+    width: 82px;
+    height: 82px;
+    margin: auto;
+    border: 3px solid #f5c542;
+    border-radius: 50%;
+    position: relative;
+    background: #102751;
+    box-shadow: 0 0 18px #f5c54230;
+}
+
+.reactor::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 2px dashed #ffffff;
+    border-radius: 50%;
+    animation: spin 12s linear infinite;
+}
+
+.reactor::after {
+    content: "V";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: #f5c542;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* REGISTRATION CARD */
+main {
+    width: min(90%, 440px);
+    margin: 40px auto;
+    padding: 32px;
+    background: #102751;
+    border: 1px solid #304875;
+    border-top: 5px solid #f5c542;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px #00000035;
+}
+
+main::before {
+    content: "PLAYER REGISTRATION";
+    display: block;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #f5c542;
+    margin-bottom: 28px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* NAME FIELDS */
+input[type="text"] {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #304875;
+    border-radius: 6px;
+    outline: none;
+    background: #08152e;
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    transition: 0.25s;
+}
+
+input[type="text"]::placeholder {
+    color: #9eacc5;
+}
+
+input[type="text"]:focus {
+    border-color: #f5c542;
+    box-shadow: 0 0 10px #f5c54225;
+}
+
+/* ENTER BUTTON */
+input[type="button"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 5px;
+    border: 2px solid #f5c542;
+    border-radius: 6px;
+    background: #f5c542;
+    color: #08152e;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+input[type="button"]:hover {
+    background: transparent;
+    color: #f5c542;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px #f5c54220;
+}
+
+input[type="button"]:active {
+    transform: scale(0.98);
+}
+
+/* PYTHON RESULT */
+#result {
+    margin-top: 24px;
+    padding: 16px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    border-radius: 6px;
+}
+
+#result:not(:empty) {
+    background: #08152e;
+    border: 1px solid #f5c542;
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    margin-top: auto;
+    padding: 20px 12px;
+    background: #050d1d;
+    border-top: 2px solid #f5c542;
+    color: #c0cbe0;
+    text-align: center;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
+footer span {
+    color: #f5c542;
+    font-weight: 600;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 480px) {
+    header {
+        padding: 35px 15px 25px;
+    }
+
+    header p {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    main {
+        padding: 24px 20px;
+        margin: 28px auto;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="reactor"></div>
+        <h1>Volleyball Varsity Checker</h1>
+        <p>Candidate Verification System</p>
+    </header>
+
+    <main>
+        <form>
+            <input type="text" id="first_name" placeholder="Lara"><br>
+            <input type="text" id="last_name" placeholder="Posa"><br>
+            <input type="button" id="enter_button" value="Enter">
+        </form>
+        <div id="result"></div>
+    </main>
+    <footer>
+        &copy: 2026 <span>Volleyball Varsity</span> &bull; Seatwork 1 &bull; 2nd Quarter
+    </footer>
+
+    <script type="py" src="main.py"></script>
+</body>
+</html>
